@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "attacts.py", line 151, in <module>
+    main()
+  File "attacts.py", line 124, in main
+    model = pretrainedmodels.__dict__[args.arch](num_classes=1000,pretrained='imagenet').eval()
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/pretrainedmodels/models/torchvision_models.py", line 543, in vgg16
+    model = load_pretrained(model, num_classes, settings)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/pretrainedmodels/models/torchvision_models.py", line 118, in load_pretrained
+    state_dict = model_zoo.load_url(settings['url'])
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/hub.py", line 499, in load_state_dict_from_url
+    return torch.load(cached_file, map_location=map_location)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/serialization.py", line 426, in load
+    return _load(f, map_location, pickle_module, **pickle_load_args)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/serialization.py", line 620, in _load
+    deserialized_objects[key]._set_from_file(f, offset, f_should_read_directly)
+RuntimeError: unexpected EOF, expected 318902345 more bytes. The file might be corrupted.
+/tmp/slurmd/job6353097/slurm_script: line 10: 23897 Segmentation fault      python attacts.py --data /home/wqlian/project/rayleigh/data/UCMerced_LandUse --arch vgg16 --ckp /home/wqlian/project/rayleigh/data/models-tmp/UCMerced_LandUse/vgg16 --tasks val --attack-type BIM --logs /home/wqlian/project/rayleigh/data/AEs/UCMerced_LandUse/vgg16/val/BIM

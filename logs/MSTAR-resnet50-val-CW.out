@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "attacts.py", line 151, in <module>
+    main()
+  File "attacts.py", line 119, in main
+    checkpoint = torch.load(mode_ckp_path,map_location=torch.device('cpu'))
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/home/wqlian/project/rayleigh/data/models-tmp/MSTAR/resnet50/checkpoint.pth.tar'

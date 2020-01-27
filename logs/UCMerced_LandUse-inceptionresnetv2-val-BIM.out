@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "attacts.py", line 151, in <module>
+    main()
+  File "attacts.py", line 124, in main
+    model = pretrainedmodels.__dict__[args.arch](num_classes=1000,pretrained='imagenet').eval()
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/pretrainedmodels/models/inceptionresnetv2.py", line 346, in inceptionresnetv2
+    model.load_state_dict(model_zoo.load_url(settings['url']))
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/hub.py", line 499, in load_state_dict_from_url
+    return torch.load(cached_file, map_location=map_location)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/serialization.py", line 426, in load
+    return _load(f, map_location, pickle_module, **pickle_load_args)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/serialization.py", line 620, in _load
+    deserialized_objects[key]._set_from_file(f, offset, f_should_read_directly)
+RuntimeError: unexpected EOF, expected 1350542 more bytes. The file might be corrupted.
+terminate called after throwing an instance of 'c10::Error'
+  what():  owning_ptr == NullType::singleton() || owning_ptr->refcount_.load() > 0 INTERNAL ASSERT FAILED at /opt/conda/conda-bld/pytorch_1573049304260/work/c10/util/intrusive_ptr.h:348, please report a bug to PyTorch. intrusive_ptr: Can only intrusive_ptr::reclaim() owning pointers that were created using intrusive_ptr::release(). (reclaim at /opt/conda/conda-bld/pytorch_1573049304260/work/c10/util/intrusive_ptr.h:348)
+frame #0: c10::Error::Error(c10::SourceLocation, std::string const&) + 0x47 (0x2ab293c9f687 in /home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x143b27f (0x2ab264bd427f in /home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/lib/libtorch.so)
+frame #2: THStorage_free + 0x17 (0x2ab2652fd127 in /home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/lib/libtorch.so)
+frame #3: <unknown function> + 0x3ec4cd (0x2ab262d1a4cd in /home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/lib/libtorch_python.so)
+<omitting python frames>
+frame #20: __libc_start_main + 0xf5 (0x2ab24d41e3d5 in /lib64/libc.so.6)
+
+/tmp/slurmd/job6316532/slurm_script: line 10: 29108 Aborted                 python attacts.py --data /home/wqlian/project/rayleigh/data/UCMerced_LandUse --arch inceptionresnetv2 --ckp /home/wqlian/project/rayleigh/data/models-tmp/UCMerced_LandUse/inceptionresnetv2 --tasks val --attack-type BIM --logs /home/wqlian/project/rayleigh/data/AEs/UCMerced_LandUse/inceptionresnetv2/val/BIM

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "attacts.py", line 151, in <module>
+    main()
+  File "attacts.py", line 124, in main
+    model = pretrainedmodels.__dict__[args.arch](num_classes=1000,pretrained='imagenet').eval()
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/pretrainedmodels/models/torchvision_models.py", line 178, in alexnet
+    model = load_pretrained(model, num_classes, settings)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/pretrainedmodels/models/torchvision_models.py", line 118, in load_pretrained
+    state_dict = model_zoo.load_url(settings['url'])
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/hub.py", line 499, in load_state_dict_from_url
+    return torch.load(cached_file, map_location=map_location)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/serialization.py", line 426, in load
+    return _load(f, map_location, pickle_module, **pickle_load_args)
+  File "/home/wqlian/project/miniconda3/envs/TR/lib/python3.6/site-packages/torch/serialization.py", line 603, in _load
+    magic_number = pickle_module.load(f, **pickle_load_args)
+_pickle.UnpicklingError: unpickling stack underflow
